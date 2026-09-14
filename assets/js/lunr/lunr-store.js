@@ -23,6 +23,12 @@ var store = [{
         "url": "/posts/2026-08-30-posts-test/",
         "teaser": null
       },{
+        "title": "인가 기능을 이용한 RBAC",
+        "excerpt":"위 제목의 이름으로 시연 영상을 준비중입니다. 제목 그대로, 이전의 Code 구현을 이용하여 Keycloak Role에 따라 Client의 권한을 지정하고 동작시키는 방식이 아니고, Keycloak의 인가 기능 중 역할 기반 정책(Role Based Policy)만을 이용하여 접근을 통제하는 방식입니다. Client(Legacy Application)의 권한을 고려하지 않고, 어떤 Resource에 접근하려는 사용자가 접근하기에 충분한 Role을 보유하고 있는지를 보고 접근...","categories": [],
+        "tags": [],
+        "url": "/posts/2026-09-14-posts-progress/",
+        "teaser": null
+      },{
         "title": "Secret Note 소개",
         "excerpt":"사용하시는 패스워드가 너무많아 자꾸 잊어버리거나 기억하기 힘들어서 두통으로 고생하신다면, 이 앱이 해결책이 될수 있습니다. Secret Note 다양한 서비스를 이용하기 위해, 다양한 사이트에 인증을 해야하고, 그로 인하여 수많은 패스워드들을 사용하기위해 기억해야 하는 시대입니다. 이런 문제로 인하여 많은 사람들은 동일하거나 비슷한 패턴을 가진 패스워드들을 여러 사이트에 걸쳐 사용하고 있기도 하구요, 특정 메모장등에...","categories": [],
         "tags": [],
