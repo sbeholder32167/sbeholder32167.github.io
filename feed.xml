@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-09-14T11:49:21+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">인가 기능을 이용한 RBAC</title><link href="https://sbeholder32167.github.io/posts/2026-09-14-posts-progress/" rel="alternate" type="text/html" title="인가 기능을 이용한 RBAC" /><published>2026-09-14T11:21:56+09:00</published><updated>2026-09-14T11:21:56+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-09-14-posts-progress/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-01T12:20:31+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">인가 기능을 이용한 RBAC 영상</title><link href="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/" rel="alternate" type="text/html" title="인가 기능을 이용한 RBAC 영상" /><published>2026-10-01T11:53:00+09:00</published><updated>2026-10-01T11:53:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/"><![CDATA[<p><br /></p>
+
+<p><br /></p>
+<hr />
+
+<div style="font-size:18px;">
+Keycloak의 인가 기능을 이용한 Legacy 전자정부 프레임워크 실행환경 통합예제 RBAC 연동 시연 영상
+</div>
+<p><a href="https://www.youtube.com/watch?v=mgiVfoCt6gc"><img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=white" alt="YouTube" /></a></p>
+
+<p><br /></p>
+<hr />
+
+<div style="font-size:18px;">
+영상 녹화한지 일주일이 지난 어제야 업로드를 완료했습니다.<br />
+더 보기 설명란에도 약간 언급했습니다만,<br />
+제가 작성한 OIDC Template Code-Authz는 Keycloak-policy-enforcer와 기능이 매우 유사합니다.<br />
+누가보면 오픈소스 코드 긁어다가 약간 수정하여 만든줄 알수도 있겠다 싶었습니다.<br />
+<br />
+하지만 저는 지금까지 Keycloak-policy-enforcer 패키지를 사용해본 적이 없습니다.<br />
+Keycloak-authz 패키지는 사용해본적 있습니다. 인가 질의에 특화된 패키지라고 생각됩니다.<br />
+그러나, Keycloak-policy-enforcer는 사용 경헙이 없음에도 불구하고, 기능적으로 유사하게 설계되고 동작하게 되었습니다.<br />
+
+<br />
+구현된 기능은 다음과 같습니다.<br />
+</div>
+<ul style="font-size:18px;">
+   <li>Client 시작 시 Keycloak에 Resource 등록 정보를 요청하여 그 정보를 Resource Info. Cache에 저장.</li>
+   <li>사용자 요청 유입시 URI를 확인하여 Cache와 비교한 후 대응되는 Resource Name 정보를 이용하여 Keycloak에 인가 질의를 수행</li>
+   <li>인가 질의의 결과에 따라 사용자 요청의 진입을 허용 또는 차단</li>
+   <li>Resource의 URI의 패턴에 따라 우선 순위를 두어, *가 추가되지 않은 순수 URI에 우선적으로 매칭하고, 없을경우 *가 적용된 URI들을 순회하여 확인.</li>
+   <li>Controller Endpoint Method에 추가 가능한  인가 기능 적용 Annotation 제공. (우선도는 Keycloak Resource 정보가 높음)</li>
+   <li>Annotation의 인가 정보를 추가적으로 Resource Info. Cache에 저장하는 기능 구현.</li>
+   <li>모든 사용자 요청에 의한 인가 질의로 인한 네트워크 부하를 방지하도록, RPT의 만료시각까지 사용되는 RPT Cache 구현.</li>
+</ul>
+<p><br /></p>
+<div style="font-size:18px;">
+OIDC Template Code-Client가 OIDC 인증과 기본 RBAC의 연동이 가능하게 해준다면,<br />
+OIDC Template Code-Authz는 그 환경을 기반으로 추가적인 인가 기능을 위해 작성된 패키지라고 말씀드릴 수 있습니다. <br />
+추가적으로 구현되는 것은 없다고 영상에 언급했습니다만,<br />
+인가 질의에 따른 결과를 커스터마이징할 필요가 있는 만큼, 예외처리 클래스 하나는 구현이 필요하다고 생각됩니다.<br />
+없다고 에러나지는 않지만, 기본 동작만으로 만족할 사용자는 없기에, 필요한 요소라고 생각됩니다.<br />
+<br />
+이전 포스트에서 언급드린바와 같이, Kakao Provider를 제작할 예정에 있습니다.<br />
+이렇게 소셜로그인 기능을 조금씩 추가하다 보면, 올인원 소셜 로그인 모듈로서 사용할수도 있을 것 같습니다.<br />
+그렇게 사용하려면 약간 설계 구조를 변경해야 할지도 모르겠네요.<br />
+접근 시각 또는 사용자 속성을 정책에 적용하는 ABAC 시연 영상은 그 다음 작업이 될 것으로 보입니다.<br />
+
+</div>
+<p><br /></p>
+
+<p>감사합니다<br /></p>]]></content><author><name>Silent Beholder</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">인가 기능을 이용한 RBAC</title><link href="https://sbeholder32167.github.io/posts/2026-09-14-posts-progress/" rel="alternate" type="text/html" title="인가 기능을 이용한 RBAC" /><published>2026-09-14T11:21:56+09:00</published><updated>2026-09-14T11:21:56+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-09-14-posts-progress/"><![CDATA[<p><br /></p>
 
 <p><br /></p>
 <hr />

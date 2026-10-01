@@ -1,20 +1,20 @@
 var store = [{
         "title": "Lab 소개",
-        "excerpt":"이 카테고리는 실무에 이용할 수준이 아닌, 아이디어 수준의 저작물 또는 실무 포트폴리오에 사용되는 모듈 제작등의 소개에 사용됩니다. 제가 관심있는 분야에 대한 기술들이 사용될 예정입니다. 현재 관심있는 기술은 두가지가 있습니다. 바로 JNI와 LLM입니다. JNI의 경우, NDK Beginners Guide 등의 관련 도서를 접하고 예제 코드를 Cmake로 바꿔 빌드해가며 지속적으로 관심을 가졌던 분야입니다....","categories": [],
+        "excerpt":"이 카테고리는 실무에 이용할 수준이 아닌, 아이디어 수준의 저작물 또는 실무 포트폴리오에 사용되는 모듈 제작등의 소개에 사용됩니다. 제가 관심있는 분야에 대한 기술들이 사용될 예정입니다. 현재 관심있는 기술은 두가지가 있습니다. 바로 JNI와 LLM입니다. JNI의 경우, Android NDK Beginners Guide 등의 관련 도서를 접하고 예제 코드를 Cmake로 바꿔 빌드해가며 지속적으로 관심을 가졌던...","categories": [],
         "tags": [],
         "url": "/labs/2026-08-29-lab-test/",
-        "teaser": null
-      },{
-        "title": "OIDC Template Code-Client 소개",
-        "excerpt":"Spring Security OAuth2 Client를 적용하기 어렵다고 Keycloak 연동을 포기하지 마세요 제목 그대로 OIDC (Open ID Connect) 연동을 위한 Client용 Template Code입니다. Keycloak, Google과 같은 IDP (Identity Provider)에 Legacy Spring 또는 Legacy 전자정부 Framework Application을 연동할수 있게 해주는 Template Code입니다. 기존 인증 체계에 대한 영향과 기존 코드에 대한 침습을 최소화하고자, Template...","categories": [],
-        "tags": [],
-        "url": "/products/oidc_template_code/2026-08-30-product-oidc-template-code-client/",
         "teaser": null
       },{
         "title": "OIDC Template Code-Client 개선사항",
         "excerpt":"코드 개선 사항(2026-09-06) 안녕하세요. 코드 개선에 따른 변경사항을 알려드립니다. 이용 시 참조하시기 바랍니다. 변경 사항 1. Discovery URI를 이용하여 OIDC 인증에 사용되는 각종 Endpoint를 읽어 동작하도록 개선된 Class를 제작하였습니다. OIDCConfig Class 대신, KeycloakConfig, GoogleConfig, NaverConfig를 사용하실 수 있습니다. 기존 OIDCConfig처럼 각종 Endpoint를 수동으로 입력한 Bean을 사용하셔도 무방합니다. 사용 편의성 측면의...","categories": [],
         "tags": [],
         "url": "/products/oidc_template_code/2026-09-06-product-oidc-template-code-client/",
+        "teaser": null
+      },{
+        "title": "OIDC Template Code-Client 소개",
+        "excerpt":"Spring Security OAuth2 Client를 적용하기 어렵다고 Keycloak 연동을 포기하지 마세요 제목 그대로 OIDC (Open ID Connect) 연동을 위한 Client용 Template Code입니다. Keycloak, Google과 같은 IDP (Identity Provider)에 Legacy Spring 또는 Legacy 전자정부 Framework Application을 연동할수 있게 해주는 Template Code입니다. 기존 인증 체계에 대한 영향과 기존 코드에 대한 침습을 최소화하고자, Template...","categories": [],
+        "tags": [],
+        "url": "/products/oidc_template_code/2026-08-30-product-oidc-template-code-client/",
         "teaser": null
       },{
         "title": "Github Pages를 오픈했습니다",
@@ -27,6 +27,12 @@ var store = [{
         "excerpt":"위 제목의 이름으로 시연 영상을 준비중입니다. 제목 그대로, 이전의 Code 구현을 이용하여 Keycloak Role에 따라 Client의 권한을 지정하고 동작시키는 방식이 아니고, Keycloak의 인가 기능 중 역할 기반 정책(Role Based Policy)만을 이용하여 접근을 통제하는 방식입니다. Client(Legacy Application)의 권한을 고려하지 않고, 어떤 Resource에 접근하려는 사용자가 접근하기에 충분한 Role을 보유하고 있는지를 보고 접근...","categories": [],
         "tags": [],
         "url": "/posts/2026-09-14-posts-progress/",
+        "teaser": null
+      },{
+        "title": "인가 기능을 이용한 RBAC 영상",
+        "excerpt":"Keycloak의 인가 기능을 이용한 Legacy 전자정부 프레임워크 실행환경 통합예제 RBAC 연동 시연 영상 영상 녹화한지 일주일이 지난 어제야 업로드를 완료했습니다. 더 보기 설명란에도 약간 언급했습니다만, 제가 작성한 OIDC Template Code-Authz는 Keycloak-policy-enforcer와 기능이 매우 유사합니다. 누가보면 오픈소스 코드 긁어다가 약간 수정하여 만든줄 알수도 있겠다 싶었습니다. 하지만 저는 지금까지 Keycloak-policy-enforcer 패키지를 사용해본...","categories": [],
+        "tags": [],
+        "url": "/posts/2026-10-01-posts-progress/",
         "teaser": null
       },{
         "title": "Secret Note 소개",
