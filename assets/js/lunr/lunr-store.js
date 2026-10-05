@@ -35,6 +35,12 @@ var store = [{
         "url": "/posts/2026-10-01-posts-progress/",
         "teaser": null
       },{
+        "title": "Scope에 대한 고민",
+        "excerpt":"얼마전에 업로드한 \"Keycloak 인가 기능을 이용한 RBAC\" 시연 영상에서는, Resource만을 대상으로 인가 기능을 시연했습니다. Resource에 연결된 Scope에 대해서는 시연을 하지 않았습니다. Scope를 쓸줄 몰라서 쓰지 않았다기 보다는, Scope를 어떻게 적용해야 인가 기능을 제공함에 있어서 가장 적절한지를 판단하지 못했습니다. 아래의 예시를 들어 설명드릴까 합니다. 첫번째로, Resource와 그에 따른 기능들을 Scope로 연결하고...","categories": [],
+        "tags": [],
+        "url": "/posts/2026-10-05-posts-discuss_scopes/",
+        "teaser": null
+      },{
         "title": "Secret Note 소개",
         "excerpt":"사용하시는 패스워드가 너무많아 자꾸 잊어버리거나 기억하기 힘들어서 두통으로 고생하신다면, 이 앱이 해결책이 될수 있습니다. Secret Note 다양한 서비스를 이용하기 위해, 다양한 사이트에 인증을 해야하고, 그로 인하여 수많은 패스워드들을 사용하기위해 기억해야 하는 시대입니다. 이런 문제로 인하여 많은 사람들은 동일하거나 비슷한 패턴을 가진 패스워드들을 여러 사이트에 걸쳐 사용하고 있기도 하구요, 특정 메모장등에...","categories": [],
         "tags": [],

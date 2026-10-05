@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-01T12:20:31+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">인가 기능을 이용한 RBAC 영상</title><link href="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/" rel="alternate" type="text/html" title="인가 기능을 이용한 RBAC 영상" /><published>2026-10-01T11:53:00+09:00</published><updated>2026-10-01T11:53:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-05T11:16:08+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">Scope에 대한 고민</title><link href="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/" rel="alternate" type="text/html" title="Scope에 대한 고민" /><published>2026-10-05T11:15:00+09:00</published><updated>2026-10-05T11:15:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss_scopes</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/"><![CDATA[<p><br /></p>
+
+<p><br /></p>
+<hr />
+
+<div style="font-size:18px;">
+얼마전에 업로드한 "Keycloak 인가 기능을 이용한 RBAC" 시연 영상에서는,<br />
+Resource만을 대상으로 인가 기능을 시연했습니다.<br />
+Resource에 연결된 Scope에 대해서는 시연을 하지 않았습니다.<br />
+Scope를 쓸줄 몰라서 쓰지 않았다기 보다는,<br />
+Scope를 어떻게 적용해야 인가 기능을 제공함에 있어서 가장 적절한지를 판단하지 못했습니다.<br />
+아래의 예시를 들어 설명드릴까 합니다.<br />
+
+<hr />
+
+첫번째로, Resource와 그에 따른 기능들을 Scope로 연결하고 매핑하여 사용하는 방법입니다.<br />
+이 방법은 Keycloak-policy-enforcer에서도 사용되었던 방법으로 알고 있습니다.<br />
+Resource 하나당 각 Endpoint 하나로 연결되고, 그 Endpoint에 정의된 Http Method를 각각의 Scope로 보는 개념입니다.<br />
+Keycloak 인가 체계에서의 Resource - Scope 컨셉에 맞는 방법이라고 생각합니다. <br />
+하나의 Endpoint가 하나의 Resource라면, 그 Resource에 접근하는 Method인 Scope는 각각 Create, Read, Update, Delete등 동사에 대응됩니다.<br />
+<br />
+이 방법은 Keycloak 인가 컨셉을 준수한다고 생각합니다만, 설정 / 코드의 추가 또는 수정을 수반한다는 단점 또한 존재한다고 생각합니다.<br />
+간단한 게시판을 예로 생각해 보겠습니다.<br />
+그 게시판의 내용 조회 API에 대해서는 Board Resource의 Read Scope가 해당됩니다<br />
+그렇다면 게시판의 내용을 가져오기 위해 API를 호출할 때마다 Keycloak에게 Board#Read 형식으로 인가 질의가 진행되어야 합니다.<br />
+그리고 게시판에 내용을 저장하기위한 Endpoint를 실행하면 Keycloak에게 Board#Create 형식으로 인가 질의가 진행되어야 합니다.<br />
+이 '인가 질의' 동작을 어떠한 방식으로든 코드로 Client에 적용해야 한다는 단점이 있다고 생각됩니다.<br />
+<br />
+게다가, Rest API의 CRUD에 대한 Http Method를 정확하게 GET, POST, PUT, DELETE를 이용하도록 개발되었다면 문제가 없으나,<br />
+편의성 및 보안등을 이유로, 모두 POST로만 사용하는 곳도 있을 것으로 생각됩니다.<br />
+그러한 경우에는 Http Method등을 이용한 Scope 매핑등은 사용하기 어렵습니다.<br />
+그러한 곳에서 Keycloak의 인가 기능을 다른 Resource에 추가로 적용하고 싶다면,<br />
+오로지 특정 단계에서 코드를 추가하거나, 설정 파일의 내용을 추가해 주어야만 할 것입니다.<br />
+
+<hr />
+
+두번째는, Scope를 아예 사용하지 않고, Resource 만으로 등록하여 사용하는 방법입니다.<br />
+이 방법은 직전 시연 영상에서 사용했던 방법입니다.<br />
+하나의 Endpoint가 하나의 Resource에 대응이 됩니다만, Endpoint 자체가 어떤 "동작"을 하는 경우도 많습니다<br />
+대표적인 경우로 게시판에 글을 저장하는데 사용되는 /api/v1/insertBoard.do 같은 Endpoint가 해당됩니다.<br />
+그렇다면, 이를 insert_board라는 또 다른 Resource로 생성하여 관리하는 방법입니다.<br />
+<br />
+이 방법은 Keycloak의 Resource-Scope 컨셉에는 맞지 않는다고 생각됩니다.<br />
+하지만, 특정 API를 추가로 보호하기 위해 Client 코드를 수정하거나 추가할 필요가 없습니다.<br />
+새로운 Resource를 Keycloak 서버에 추가한 후, Client만 재시작 해주면 추가된 Resource 정보까지 모두 Client가 읽어서 인가 질의에 반영합니다.<br />
+그 다음부터는 그 Resource에 특정 정책을 적용하여 얼마든지 접근통제를 할수 있습니다.<br />
+사용자가 새로운 Resource에 접근하려고 하면 바로 Client에서 그 Resource에 할당된 Endpoint에 진입하기 직전에 인가 질의가 수행될 테니까요.<br />
+<hr />
+이것을 Board Resource의 Create Scope로 판단해야 할까요? 아니면 insert_board라는 Resource를 새로 생성해야 할까요?<br />
+즉, Board#Create 로 인가 질의를 해야 할까요? 아니면 insert_board 로 인가 질의를 해야 할까요?<br />
+실무에서는 보안 / 운영팀의 경우, 개발팀의 협조를 구하여 신속하게 업무가 처리되기가 쉽지 않다고 알고 있습니다.<br />
+타 부서의 업무 협조를 얻어 일을 진행하기는 팀 내부적으로 처리하는 것에 비해 번거롭고 쉽지 않지요.<br />
+Keycloak의 인가 컨셉을 준수하는 것보다 실무적인 편리함을 추구하신다면, 두번째 방법도 고려해볼 가치가 있다고 생각됩니다.<br />
+<hr />
+Keycloak의 Resource-Scope 컨셉을 준수하며, 코드를 이용한 Scope 인가를 이용할 것인지,<br />
+그 컨셉을 준수하지 않고 Resource 만 사용하되, 모든 접근 통제를 UI상에서 처리하도록 할 것인지.<br />
+일단 위 두가지 중 어떤 것을 선택해도 가능한 방향으로 개선중에 있습니다.<br />
+<br />
+지난 포스트에서, 'Controller Endpoint Method에 추가 가능한 인가 기능 적용 Annotation 제공.'이라고 Authz 패키지 기능을 나열했는데,<br />
+그게 첫번째 방법을 적용하기 위한 기능입니다.<br />
+인가 기능을 Method에 적용할수 있도록 Annotation을 제공하는데,<br />
+이것은 Controller Method 뿐만 아닌, Method 자체에 적용할수 있게 개선하는 것을 검토 중입니다.<br />
+사용자 요청에 대한 Controller 접근을 통제하는 것 뿐만 아니라, <br />
+더욱 내부의 서비스 단계에 대한 접근 통제 혹은 DB Access 단계에 대한 접근 통제를 필요로 하는 곳도 있을 것으로 생각되니까요. <br />
+Method Annotation은 이를 구현하기 용이하게 해줄 방법이라고 생각됩니다.<br />
+하지만, 인가를 적용하고 싶은 Method마다 Annotation을 추가해야하는 '코딩'은 피할수 없습니다.<br />
+이 기능들을 개선하고 난 후에 'Resource-Scope를 이용한 접근통제 시연 영상'을 추가로 제작할 예정입니다.<br />
+<hr />
+위 작업은 Kakao Provider를 작성한 이후의 작업이 될것 같습니다.<br />
+<br />
+감사합니다<br />
+</div>]]></content><author><name>Silent Beholder</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">인가 기능을 이용한 RBAC 영상</title><link href="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/" rel="alternate" type="text/html" title="인가 기능을 이용한 RBAC 영상" /><published>2026-10-01T11:53:00+09:00</published><updated>2026-10-01T11:53:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-01-posts-progress/"><![CDATA[<p><br /></p>
 
 <p><br /></p>
 <hr />
@@ -19,7 +90,7 @@ Keycloak의 인가 기능을 이용한 Legacy 전자정부 프레임워크 실�
 <br />
 하지만 저는 지금까지 Keycloak-policy-enforcer 패키지를 사용해본 적이 없습니다.<br />
 Keycloak-authz 패키지는 사용해본적 있습니다. 인가 질의에 특화된 패키지라고 생각됩니다.<br />
-그러나, Keycloak-policy-enforcer는 사용 경헙이 없음에도 불구하고, 기능적으로 유사하게 설계되고 동작하게 되었습니다.<br />
+그러나, Keycloak-policy-enforcer는 사용 경험이 없음에도 불구하고, 기능적으로 유사하게 설계되고 동작하게 되었습니다.<br />
 
 <br />
 구현된 기능은 다음과 같습니다.<br />
