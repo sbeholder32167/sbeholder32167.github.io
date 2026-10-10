@@ -5,16 +5,22 @@ var store = [{
         "url": "/labs/2026-08-29-lab-test/",
         "teaser": null
       },{
+        "title": "OIDC Template Code-Client 소개",
+        "excerpt":"Spring Security OAuth2 Client를 적용하기 어렵다고 Keycloak 연동을 포기하지 마세요 제목 그대로 OIDC (Open ID Connect) 연동을 위한 Client용 Template Code입니다. Keycloak, Google과 같은 IDP (Identity Provider)에 Legacy Spring 또는 Legacy 전자정부 Framework Application을 연동할수 있게 해주는 Template Code입니다. 기존 인증 체계에 대한 영향과 기존 코드에 대한 침습을 최소화하고자, Template...","categories": [],
+        "tags": [],
+        "url": "/products/oidc_template_code/2026-08-30-product-oidc-template-code-client/",
+        "teaser": null
+      },{
         "title": "OIDC Template Code-Client 개선사항",
         "excerpt":"코드 개선 사항(2026-09-06) 안녕하세요. 코드 개선에 따른 변경사항을 알려드립니다. 이용 시 참조하시기 바랍니다. 변경 사항 1. Discovery URI를 이용하여 OIDC 인증에 사용되는 각종 Endpoint를 읽어 동작하도록 개선된 Class를 제작하였습니다. OIDCConfig Class 대신, KeycloakConfig, GoogleConfig, NaverConfig를 사용하실 수 있습니다. 기존 OIDCConfig처럼 각종 Endpoint를 수동으로 입력한 Bean을 사용하셔도 무방합니다. 사용 편의성 측면의...","categories": [],
         "tags": [],
         "url": "/products/oidc_template_code/2026-09-06-product-oidc-template-code-client/",
         "teaser": null
       },{
-        "title": "OIDC Template Code-Client 소개",
-        "excerpt":"Spring Security OAuth2 Client를 적용하기 어렵다고 Keycloak 연동을 포기하지 마세요 제목 그대로 OIDC (Open ID Connect) 연동을 위한 Client용 Template Code입니다. Keycloak, Google과 같은 IDP (Identity Provider)에 Legacy Spring 또는 Legacy 전자정부 Framework Application을 연동할수 있게 해주는 Template Code입니다. 기존 인증 체계에 대한 영향과 기존 코드에 대한 침습을 최소화하고자, Template...","categories": [],
+        "title": "OIDC Template Code-Client 개선사항",
+        "excerpt":"코드 개선 사항(2026-10-10) 안녕하세요. 코드 개선에 따른 변경사항을 알려드립니다. 이용 시 참조하시기 바랍니다. 변경 사항 1. Kakao 소셜 로그인 Provider를 작성하였습니다. 카카오 디벨로퍼스에서 앱을 등록하고, Redirect URI 및 Logout URI등을 설정하신 후, 로그인을 하실 수 있습니다. Google / Naver Provider를 적용할 때와 마찬가지로, OIDCConfig, OIDCProvider, ClientAuthConvertAdapter 구현 Class만 바꾸면 Kakao...","categories": [],
         "tags": [],
-        "url": "/products/oidc_template_code/2026-08-30-product-oidc-template-code-client/",
+        "url": "/products/oidc_template_code/2026-10-10-product-oidc-template-code-client/",
         "teaser": null
       },{
         "title": "Github Pages를 오픈했습니다",
