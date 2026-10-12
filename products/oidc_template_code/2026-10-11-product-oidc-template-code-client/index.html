@@ -1,0 +1,457 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="ko-KR" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>OIDC Template Code-Client 개선사항 - HS Workshop</title>
+<meta name="description" content="코드 개선 사항 (2026-10-11)">
+
+
+  <meta name="author" content="Silent Beholder">
+  
+  <meta property="article:author" content="Silent Beholder">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="HS Workshop">
+<meta property="og:title" content="OIDC Template Code-Client 개선사항">
+<meta property="og:url" content="https://sbeholder32167.github.io/products/oidc_template_code/2026-10-11-product-oidc-template-code-client/">
+
+
+  <meta property="og:description" content="코드 개선 사항 (2026-10-11)">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-10-12T10:10:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://sbeholder32167.github.io/products/oidc_template_code/2026-10-11-product-oidc-template-code-client/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HS Workshop Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          HS Workshop
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/products/"
+                
+                
+              >Products</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/labs/"
+                
+                
+              >Labs</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sbeholder32167.github.io/" itemprop="url">Silent Beholder</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>정보 보안을 전공했으며, 앱이나 웹 어플리케이션 등을 개발하는 1인 개발자입니다.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Kyunggi, Korea(South)</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:sbeholder6684@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">X</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sbeholder32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="OIDC Template Code-Client 개선사항">
+    <meta itemprop="description" content="코드 개선 사항 (2026-10-11)">
+    <meta itemprop="datePublished" content="2026-10-12T10:10:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://sbeholder32167.github.io/products/oidc_template_code/2026-10-11-product-oidc-template-code-client/" itemprop="url">OIDC Template Code-Client 개선사항
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p style="font-size:18px;">코드 개선 사항 (2026-10-11)</p>
+<hr />
+
+<div style="font-size:18px;">
+안녕하세요.<br /><br />
+
+코드 개선에 따른 변경사항을 알려드립니다.<br />
+이용 시 참조하시기 바랍니다.<br />
+</div>
+<p><a href="https://github.com/sbeholder32167/oidctemplate_code_client"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub" /></a>
+<br /></p>
+<div style="font-size:18px;">
+<hr />
+<h6>변경 사항</h6>
+<br />
+
+1. Access Token 검증 로직을 추가하였습니다.<br />
+<ul>
+    <li>ID Token은 Google, Naver, Kakao 모두 Keycloak과 마찬가지로 JWT 를 사용하고 있습니다. 그래서 검증 로직도 동일하게 적용할수 있었습니다.</li>
+    <li>그러나, Access Token의 경우, Google, Naver, Kakao 모두 Opaque Token을 사용하고 있기에 Keycloak과 동일한 Access Token 검증 로직을 적용할수가 없었습니다.</li>
+    <li>Keycloak의 경우는 Access Token도 JWT 검증을 진행하고, 다른 IDP의 경우는 User Info. API에 Query하는 것으로 검증을 진행합니다.</li>
+</ul>
+<br />
+
+필수적인 Token 검증 기능이 이제야 완성되었다고 생각합니다.<br />
+이렇게 미흡했던 코드를 공개했다니 좀 부끄럽기도 합니다.<br />
+하지만 이번에 수정됨으로서 제대로 된 Template Code가 된것 같아서 한편으로는 다행이라는 생각입니다.<br />
+앞으로도 이렇게 표준에 미달되거나 미흡한 부분을 지속적으로 개선해 나갈 예정입니다.<br />
+<br />
+
+<br />
+<hr />
+<div style="font-size:18px;">
+<h6>추후 변경 예정 사항</h6>
+<ul>
+    <li>Resource Server를 위한 Template Code를 구상중에 있습니다. 이는 별도의 Template Code로 작성될 듯 싶습니다</li>
+</ul>
+<br />
+<hr />
+감사합니다.
+</div>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2026-10-12T10:10:00+09:00">October 12, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/products/oidc_template_code/2026-10-10-product-oidc-template-code-client/" class="pagination--pager" title="OIDC Template Code-Client 개선사항">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i> X</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sbeholder32167.github.io">HS Workshop</a>. 제작 지원:  <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

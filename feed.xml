@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-10T18:36:12+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">Scope에 대한 고민</title><link href="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/" rel="alternate" type="text/html" title="Scope에 대한 고민" /><published>2026-10-05T11:15:00+09:00</published><updated>2026-10-05T11:15:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss_scopes</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-12T11:52:04+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">Keycloak 인가 기능을 이용한 심층 방어?</title><link href="https://sbeholder32167.github.io/posts/2026-10-12-posts-progres/" rel="alternate" type="text/html" title="Keycloak 인가 기능을 이용한 심층 방어?" /><published>2026-10-12T11:30:00+09:00</published><updated>2026-10-12T11:30:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progres</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-12-posts-progres/"><![CDATA[<p><br /></p>
+
+<p><br /></p>
+<hr />
+
+<div style="font-size:18px;">
+제목만 보면 매우 거창하게 생각될수 있습니다.<br />
+하지만, 한번의 사용자 요청에 "인가 질의가 여러번 진행되고 여러번 검증된다"고 해석할수 있습니다.<br />
+RPT Cache는 필수적이 되겠네요.<br />
+<br />
+<hr />
+현재 "Keycloak 인가 기능을 이용한 Scope 기반 접근 제어" 시연 영상을 준비하고 있습니다.<br />
+원래는 ABAC에 대한 시연 영상을 생각했었습니다만, Scope의 사용 시연이 더 먼저라고 생각됩니다.<br />
+이 Scope와, 각 Method에 부착되는 Annotation 기능을 이용하면 심층 방어가 가능하다고도 생각됩니다.<br />
+현재 이것에 대해 어느정도 테스트가 진행된 상황입니다.<br />
+직전 포스트에 언급했던 두가지 방법에 대한 내용과 같은 내용입니다만,<br />
+그 두가지 방법을 따로 이용하며 하나를 선택하는 것이 아닌, 두가지 방법을 모두 혼용하는 방법입니다.<br />
+각자 장단점이 있으며, 그것들을 언급할까 합니다.<br />
+
+<hr />
+
+첫번째로, Resource와 그에 따른 기능들을 Scope로 연결하고 매핑하여 사용하는 방법입니다.<br />
+Keycloak-policy-enforcer에서는 특정 설정 파일을 만들고, 그 파일 내부에 인가 정보를 넣어 매핑하여 사용하는 것으로 알고 있습니다.<br />
+제가 작성한 OIDC Template Code-Authz에서는, 소스 코드의 Method에 인가 정보 Annotation을 부착하는 것으로 적용했습니다.<br />
+<br />
+장점으로는, Keycloak 인가 체계에서의 Resource - Scope 컨셉의 준수라고 생각합니다. <br />
+하나의 Endpoint를 하나의 Resource로 매핑하고, 그 Resource에 가하는 행위(동작)를 Scope로 보는 개념을 그대로 인가에 적용할수 있다고 생각합니다.<br />
+제가 작성한 OIDC Template Code-Authz에서는, 인가 검증을 적용할 Method에 Annotation만 추가하면 됩니다.<br />
+그 Annotation에 Resource명과 Scope같은 인가 정보가 기입되므로, 이를 이용하여 바로 인가 질의를 진행합니다.<br />
+Controller Method(Endpoint) 뿐만이 아닌, 내부의 각종 Component 또는 Service의 Method 또는 DB에 접근하는 Method에도 적용할수 있습니다.<br />
+<br />
+단점으로는, 설정 파일이든 코딩이든 뭔가 Client의 파일을 변경할 필요가 있다는 것입니다.<br />
+제가 작성한 OIDC Template Code-Authz에서도, 인가 검증을 적용할 Method로의 Annotation 추가는 필수적입니다.<br />
+설정 파일만 변경하면 Re-Build할 필요는 없겠지만, 파일의 변경은 피할수 없다고 생각됩니다.<br />
+Keycloak-policy-enforcer가 설정 파일 매핑 방식을 사용한 것은 Re-Build를 피하기 위한 방법이 아니었을까 예상도 해봅니다.<br />
+<br />
+<hr />
+두번째는, Scope를 아예 사용하지 않고, Resource 만으로 등록하여 사용하는 방법입니다.<br />
+이 방법은 현재 Controller Method(Endpoint) 접근 시 활용되고 있습니다.<br />
+<br />
+장점으로는, 설정 파일이나 소스 코드의 변경이 필요 없다는 것입니다.<br />
+제가 작성한 OIDC Template Code-Authz에서는, Client를 재시작하면 Keycloak 서버에 Resource 정보를 요청합니다.<br />
+Resource 정보에서 Resource명과 URI 쌍을 받아 이를 Cache에 저장합니다.<br />
+이렇게 저장된 Cache는 사용자 요청 시 인가 질의 검증을 위해 활용됩니다.<br />
+즉, Keycloak 관리자 콘솔에서 URI가 명기된 Resource를 등록해준후, Client 만 재시작 해주면 적용됩니다.<br />
+<br />
+단점으로는, 이 방법은 Scope를 사용할수가 없습니다.<br />
+Keycloak 관리자 콘솔에서는 Resource와 URI간의 관계만 정의될수 있습니다. Scope와 URI간 관계는 정의되지 않습니다.<br />
+이로 인하여, URI를 참조하여 Resource명을 찾아서 인가질의에 반영하는 기능에서는 Scope를 반영할수가 없어서 Keycloak의 Scope를 사용할수가 없었습니다.<br />
+Http Method를 Scope로 명시할수도 있습니다만, 모든 Client들이 RestAPI의 표준을 완벽하게 준수하여 구현되었다고 보기는 어렵습니다.<br />
+POST로만 작성되었다면, 모든 Method의 Scope가 Create로만 질의할수도 있으니까요.<br />
+<br />
+<hr />
+위 두가지 방법을 어느 하나를 선택하지 않고, 두 가지를 모두 혼용하는 방법을 이용하면 심층 방어가 가능하다고 생각합니다.<br />
+처음 사용자 요청을 받는 Controller 단계에서는 두번째 방법을 이용하여 인가 검증을 진행합니다.<br />
+(물론 Annotation을 Controller Method에 부착하여 처리할수도 있습니다.)<br />
+이때는 Resource에 대한 인가 검증만이 진행됩니다.<br />
+그 Controller에서 내부 Service의 특정 Method를 호출하는 부분에는, 첫번째 방법을 이용하여 인가 검증을 진행하는 것입니다.<br />
+그때는 Resource 뿐만 아니라 Scope도 적용되어 인가 검증이 진행됩니다.<br />
+<br />
+<hr />
+현재 이와같은 방법으로 테스트를 진행중입니다.<br />
+(현재 의도된 모든 동작이 확인되지는 않았습니다. 이점 참고하시기 바랍니다.)<br /><br />
+테스트용 게시판을 예를 들어 설명해드리자면,<br />
+1. 사용자가 게시판에 접근합니다.<br /> 
+<ul>
+   <li>/board/viewBoard.do라는 Endpoint로 접근한다고 가정하겠습니다.</li>
+   <li>이때는 /board/*.do로 매핑된 board Resource로 확인되고, OIDC Template Code-Authz 패키지는 board라는 Resource로 인가질의를 진행합니다.</li>
+</ul>
+2. 첫번째 인가 질의가 허용되면, BoardController로 진입하게 된다고 가정합니다.<br />
+<ul>
+   <li>그 Endpoint 코드에서 게시판의 내용을 DB에서 읽어오는 BoardService.selectBoardList라는 Method를 호출합니다.</li>
+   <li>이 Method에는 (ResourceName='board', scopes={'Read'})라는 Annotation이 적용되어 있습니다.</li>
+   <li>OIDC Template Code-Authz 패키지는 여기서 board라는 Resource의 Read라는 Scope로 인가 질의를 진행합니다.</li>
+</ul>
+3. 두번째 인가 질의가 허용되면, BoardService로 진입하게 된다고 가정합니다.<br />
+<ul>
+   <li>이 Class에서 게시판의 내용을 읽기위해 DB에 접근하는 BoardDAO.selectBoardList라는 Method를 호출합니다.</li>
+   <li>이 Method에는 (ResourceName='boardTable', scopes={'Read'})라는 Annotation이 적용되어 있습니다.</li>
+   <li>OIDC Template Code-Authz 패키지는 여기서 boardTable이라는 Resource의 Read라는 Scope로 인가 질의를 진행합니다.</li>
+</ul>
+<br />
+게시판에 한번 접근하여 내용을 불러오는 데 3회의 인가 질의가 진행되었습니다.<br />
+3회의 인가 질의중, 한번이라도 Deny 판정 결과가 도출되면 사용자는 게시판 내용을 볼수 없습니다.<br />
+위에 언급해드린 두가지 방법을 이렇게 같이 적용한다면,<br />
+Keycloak의 인가 기능을 이용한 심층 방어가 가능하지 않을까 생각됩니다.<br />
+3회의 인가 질의는, 곧 3개의 Permission을 받아야 한다는 것이며, 3개의 Permission에 적용된 정책들을 모두 준수해야 합니다.<br />
+각자 다른 정책으로 꼼꼼히 여러번 검증하는 것이 심층 방어의 기본이 아닐까 생각합니다.<br />
+하지만, 한번의 사용자 요청에 3회의 인가 질의는 심각한 병목 현상을 초래할 수 있습니다.<br />
+RPT Cache로 어느정도 완화시킬수 있겠으나, 만능 해결사라고 볼수는 없다고 생각합니다.<br />
+이 Trade-off가 고려되어야 하겠습니다.<br />
+<hr />
+위 내용은 "Keycloak 인가 기능을 이용한 Scope 기반 접근 제어" 시연 영상에서 다룰 생각입니다.<br />
+<br />
+감사합니다<br />
+</div>]]></content><author><name>Silent Beholder</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Scope에 대한 고민</title><link href="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/" rel="alternate" type="text/html" title="Scope에 대한 고민" /><published>2026-10-05T11:15:00+09:00</published><updated>2026-10-05T11:15:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss_scopes</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-05-posts-discuss_scopes/"><![CDATA[<p><br /></p>
 
 <p><br /></p>
 <hr />

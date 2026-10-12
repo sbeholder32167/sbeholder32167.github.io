@@ -23,6 +23,12 @@ var store = [{
         "url": "/products/oidc_template_code/2026-10-10-product-oidc-template-code-client/",
         "teaser": null
       },{
+        "title": "OIDC Template Code-Client 개선사항",
+        "excerpt":"코드 개선 사항 (2026-10-11) 안녕하세요. 코드 개선에 따른 변경사항을 알려드립니다. 이용 시 참조하시기 바랍니다. 변경 사항 1. Access Token 검증 로직을 추가하였습니다. ID Token은 Google, Naver, Kakao 모두 Keycloak과 마찬가지로 JWT 를 사용하고 있습니다. 그래서 검증 로직도 동일하게 적용할수 있었습니다. 그러나, Access Token의 경우, Google, Naver, Kakao 모두 Opaque Token을...","categories": [],
+        "tags": [],
+        "url": "/products/oidc_template_code/2026-10-11-product-oidc-template-code-client/",
+        "teaser": null
+      },{
         "title": "Github Pages를 오픈했습니다",
         "excerpt":"Github Pages도 처음이고, Jekyll도 처음이다 보니 엉성한 부분이 많습니다 하지만 지금까지 누구나 쉽게 사용할수 있었던 채널들보다는 달리 새로운 방법을 이용하고 싶었습니다 다른 사람들과 뭔가 차별점도 보이고 싶었습니다 이렇게 작성하고 보니 용도 측면에서는 만족스럽습니다 약간 까다롭다는 생각도 들지만 오히려 각 페이지에 대한 커스터마이징의 한계가 거의 없으니, 자유로움 측면에서는 포털 사이트 블로그들에...","categories": [],
         "tags": [],
@@ -45,6 +51,12 @@ var store = [{
         "excerpt":"얼마전에 업로드한 \"Keycloak 인가 기능을 이용한 RBAC\" 시연 영상에서는, Resource만을 대상으로 인가 기능을 시연했습니다. Resource에 연결된 Scope에 대해서는 시연을 하지 않았습니다. Scope를 쓸줄 몰라서 쓰지 않았다기 보다는, Scope를 어떻게 적용해야 인가 기능을 제공함에 있어서 가장 적절한지를 판단하지 못했습니다. 아래의 예시를 들어 설명드릴까 합니다. 첫번째로, Resource와 그에 따른 기능들을 Scope로 연결하고...","categories": [],
         "tags": [],
         "url": "/posts/2026-10-05-posts-discuss_scopes/",
+        "teaser": null
+      },{
+        "title": "Keycloak 인가 기능을 이용한 심층 방어?",
+        "excerpt":"제목만 보면 매우 거창하게 생각될수 있습니다. 하지만, 한번의 사용자 요청에 \"인가 질의가 여러번 진행되고 여러번 검증된다\"고 해석할수 있습니다. RPT Cache는 필수적이 되겠네요. 현재 \"Keycloak 인가 기능을 이용한 Scope 기반 접근 제어\" 시연 영상을 준비하고 있습니다. 원래는 ABAC에 대한 시연 영상을 생각했었습니다만, Scope의 사용 시연이 더 먼저라고 생각됩니다. 이 Scope와, 각...","categories": [],
+        "tags": [],
+        "url": "/posts/2026-10-12-posts-progres/",
         "teaser": null
       },{
         "title": "Secret Note 소개",
