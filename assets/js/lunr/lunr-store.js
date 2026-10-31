@@ -59,6 +59,12 @@ var store = [{
         "url": "/posts/2026-10-12-posts-progres/",
         "teaser": null
       },{
+        "title": "'다중 인가 검증' 시연 영상",
+        "excerpt":"Keycloak을 이용한 Legacy 전자정부 프레임워크 애플리케이션의 '다중 인가 검증' 시연 영상 이번 영상에서는 이전 포스트들에서 언급한 바와 같이 Scope 기반의 Permission이 사용되었습니다. Scope 기반의 접근제어 또는 Resource-Scope를 이용한 접근 통제 라고 보시면 되겠습니다. Permission 안에 Resource와 Scope가 모두 적용되니까요. 이전 포스트에 언급되었던 내용보다 약간 기능을 추가한후 시연 영상을 녹화하게 되었습니다....","categories": [],
+        "tags": [],
+        "url": "/posts/2026-10-31-posts-progress/",
+        "teaser": null
+      },{
         "title": "Secret Note 소개",
         "excerpt":"사용하시는 패스워드가 너무많아 자꾸 잊어버리거나 기억하기 힘들어서 두통으로 고생하신다면, 이 앱이 해결책이 될수 있습니다. Secret Note 다양한 서비스를 이용하기 위해, 다양한 사이트에 인증을 해야하고, 그로 인하여 수많은 패스워드들을 사용하기위해 기억해야 하는 시대입니다. 이런 문제로 인하여 많은 사람들은 동일하거나 비슷한 패턴을 가진 패스워드들을 여러 사이트에 걸쳐 사용하고 있기도 하구요, 특정 메모장등에...","categories": [],
         "tags": [],
