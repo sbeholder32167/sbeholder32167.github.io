@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-10-31T11:30:23+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">‘다중 인가 검증’ 시연 영상</title><link href="https://sbeholder32167.github.io/posts/2026-10-31-posts-progress/" rel="alternate" type="text/html" title="‘다중 인가 검증’ 시연 영상" /><published>2026-10-31T10:30:00+09:00</published><updated>2026-10-31T10:30:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-31-posts-progress/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-11-05T08:58:39+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">왜 최신 Keycloak을 적용하려 하세요?</title><link href="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/" rel="alternate" type="text/html" title="왜 최신 Keycloak을 적용하려 하세요?" /><published>2026-11-05T08:10:00+09:00</published><updated>2026-11-05T08:10:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/"><![CDATA[<p><br />
+오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?
+<br /></p>
+<hr />
+
+<div style="font-size:18px;">
+원론적인 질문입니다만, 여기서부터 시작을 해야할 것 같습니다.<br />
+생각해보면, 굳이 레거시 애플리케이션에 최신의 Keycloak을 연동할 이유가 있을지요?<br />
+잘 동작하는 애플리케이션을 건드려 이슈 만들일은 없어야 하겠지요.<br />
+<br />
+OIDC Template code를 만들고 보니, 용도가 그리 크지 않다는 생각이 들었습니다.<br />
+뭐하러 레거시 애플리케이션과 최신 Keycloak을 연동할까 하는 생각이 들었습니다.<br />
+<br />
+AI(LLM)에게 물어보니, 이것 저것 가져와 답변해주더군요.<br />
+보안 심사와 그에따른 권고사항일수도 있고,<br />
+MSA로의 전환에 따른 과도기에 사용될수도 있다고 하더군요.<br />
+제가 봐도 위 두가지 이유가 아니고서야 굳이 잘 동작하고 있는 애플리케이션의 인증을 건드릴 일은 없겠다 싶었습니다.<br />
+메뉴 한가지에 영향을 미치는 로직이 아닌 인증과 세션등 애플리케이션 전체에 영향을 미치는 작업이 Keycloak 연동일텐데,그런 임팩트가 큰 작업을 굳이 억지로 할 이유는 크지 않다고 생각됩니다.<br />
+<br />
+<hr />
+그러다 보니, 저 또한 MSA로의 전환에 자연스레 관심을 갖게 되었습니다.<br />
+MSA로의 전환은 보통 일이 아니라고 생각합니다. 그게 제가 관심갖지 않은 가장 큰 이유였습니다.<br />
+모놀리식 프로세스 하나 분리한다고 해서 MSA가 완료되었다고 생각하지 않습니다.<br />
+DB도 각 마이크로서비스에 맞게 분리하고, 애플리케이션 단은 물론 분리하고, 관리 / 운영의 패러다임 또한 바뀌는 것이 MSA 전환이라고 생각합니다.<br />
+그 MSA로 전환하는 과도기에 레거시 애플리케이션과 최신 Keycloak이 연동되어야 하더군요.<br />
+MSA로 전환 중이더라도, 레거시 애플리케이션을 사용하는데 있어서 인증 문제는 없어야 하니까요.<br />
+그래서 제 나름대로 절차를 구상해 봤습니다.<br />
+실무에서 안해봤냐고요? 네. 안해봤습니다.<br />
+해봤다면 OIDC Template Code는 이미 그 업체의 자산이 되어있을지도 모르는 일입니다.<br />
+<br />
+<hr />
+대략적인 절차는 아래와 같습니다.<br />
+<ul>
+<li>최신 Keycloak 서버와 레거시 애플리케이션 연동. (사용자 계정 Migration 포함)</li>
+<li>API Gateway 설치 및 하나의 리소스 서버를 생성하여 레거시 애플리케이션과 연동.</li>
+<li>점진적으로 레거시 애플리케이션에서 비지니스 로직을 분리하여 새로운 리소스 서버로 제작하여 추가.</li>
+<li>최종적으로 리소스 서버에 데이터를 요청하여 화면에 출력하는 레거시 Client의 재작성 또는 Migration.</li>
+</ul>
+<br />
+
+위 절차들을 보시면, 가장 먼저 인증과 세션부터 확립하려는 것을 보실 수 있습니다.<br />
+그 후, 토큰 인가를 통해 리소스 서버로의 접근 통제가 진행되기에,<br /> 
+Keycloak통제 하의 안전한 환경에서 점진적으로 MSA로의 전환이 가능하다고 생각합니다.<br />
+<br />
+<hr />
+하지만 실무에서는 위의 절차처럼 쉽게 진행되지 않는다고 생각합니다.<br />
+제가 다른 실무를 겪으면서 지금까지 느껴본 바로는 그렇습니다.<br />
+회의실에서는 금방금방 바로 될것 같은 일들이, 직접 진행해보면 지뢰와 암초가 곳곳에 널려있지요.<br />
+저 또한 위의 절차들이 쉽게 진행되리라 생각하지는 않습니다.<br />
+하지만, 저 절차들이 신속한 의사결정이 가능해지고, 부분적으로라도 쉽게 진행될수 있도록,<br />
+각 단계에 따른 PoC를 진행해보는 것이 답이라고 생각합니다.<br />
+말 만으로 된다고 하는 것보다, PoC 결과물과 레퍼런스 코드의 제시 한번으로 의사결정이 끝나는 경우가 많지 않던가요?<br />
+그래서, Template Code의 개선 방향을 MSA전환에 필요한 쪽으로 잡게 되었습니다.<br />
+단순 Keycloak 연동의 이유보다는, MSA로의 전환을 목적으로 하는 경우가 많을 거라고 생각하기 때문입니다.<br />
+<br />
+<hr />
+현재 위 절차의 1단계에서, 일반적인 RBAC 연동이 동작함을 시연 영상으로 보여드렸습니다. <br />
+하지만 사용자 계정 이관등의 이슈에 대해서는 따로 언급을 안했지요.<br />
+네. 제 OIDC Template Code-Client는 레거시 애플리케이션을 OIDC Client로서 연동하는데 도움이 되는 코드입니다만, 사용자 계정의 이관에는 도움이 되지 못하지요.<br />
+때문에, 현재 사용자 계정의 이관 이슈에 대응하기 위한 방책을 알아보고 PoC를 진행하고 있습니다.<br />
+JSON Import 방식과, User Storage SPI방식이 그것입니다.<br />
+각자 장단점이 있는 방식입니다.<br />
+특히, 실시간 인가 질의 및 검증 기능에 있어서, Fetch Roles 기능의 적용여부가 갈리게 됩니다.<br />
+<br />
+<hr />
+앞으로는 위에 언급한 로드맵 절차에 대해 하나씩 PoC를 진행해볼 생각입니다.<br />
+2단계까지만 PoC를 진행해볼 생각입니다. 
+그 이후 비지니스 로직 분리시켜 리소스 서버 만드는 것은 인증/인가의 영역이 아니라고 생각합니다.<br />
+3단계까지 진행된 상황이라면, 리소스 서버의 인가를 어떻게 진행하고 검증할지 이미 확정된 시점이 아닐까요?<br />
+2단계까지라고 하더라도, MSA전환과 구성 솔루션들(Spring Cloud Gateway등)에 대한 지식과 경험을 상당량 습득할수 있다고 봅니다.<br />
+<br />
+감사합니다<br />
+</div>]]></content><author><name>Silent Beholder</name></author><summary type="html"><![CDATA[오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?]]></summary></entry><entry><title type="html">‘다중 인가 검증’ 시연 영상</title><link href="https://sbeholder32167.github.io/posts/2026-10-31-posts-progress/" rel="alternate" type="text/html" title="‘다중 인가 검증’ 시연 영상" /><published>2026-10-31T10:30:00+09:00</published><updated>2026-10-31T10:30:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-progress</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-10-31-posts-progress/"><![CDATA[<p><br /></p>
 
 <p><br /></p>
 <hr />

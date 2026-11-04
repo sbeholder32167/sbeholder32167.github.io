@@ -1,0 +1,488 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="ko-KR" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>왜 최신 Keycloak을 적용하려 하세요? - HS Workshop</title>
+<meta name="description" content="오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?">
+
+
+  <meta name="author" content="Silent Beholder">
+  
+  <meta property="article:author" content="Silent Beholder">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="HS Workshop">
+<meta property="og:title" content="왜 최신 Keycloak을 적용하려 하세요?">
+<meta property="og:url" content="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/">
+
+
+  <meta property="og:description" content="오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-11-05T08:10:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HS Workshop Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          HS Workshop
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/products/"
+                
+                
+              >Products</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/labs/"
+                
+                
+              >Labs</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sbeholder32167.github.io/" itemprop="url">Silent Beholder</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>정보 보안을 전공했으며, 앱이나 웹 어플리케이션 등을 개발하는 1인 개발자입니다.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Kyunggi, Korea(South)</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:sbeholder6684@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">X</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sbeholder32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="왜 최신 Keycloak을 적용하려 하세요?">
+    <meta itemprop="description" content="오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?">
+    <meta itemprop="datePublished" content="2026-11-05T08:10:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/" itemprop="url">왜 최신 Keycloak을 적용하려 하세요?
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p><br />
+오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?
+<br /></p>
+<hr />
+
+<div style="font-size:18px;">
+원론적인 질문입니다만, 여기서부터 시작을 해야할 것 같습니다.<br />
+생각해보면, 굳이 레거시 애플리케이션에 최신의 Keycloak을 연동할 이유가 있을지요?<br />
+잘 동작하는 애플리케이션을 건드려 이슈 만들일은 없어야 하겠지요.<br />
+<br />
+OIDC Template code를 만들고 보니, 용도가 그리 크지 않다는 생각이 들었습니다.<br />
+뭐하러 레거시 애플리케이션과 최신 Keycloak을 연동할까 하는 생각이 들었습니다.<br />
+<br />
+AI(LLM)에게 물어보니, 이것 저것 가져와 답변해주더군요.<br />
+보안 심사와 그에따른 권고사항일수도 있고,<br />
+MSA로의 전환에 따른 과도기에 사용될수도 있다고 하더군요.<br />
+제가 봐도 위 두가지 이유가 아니고서야 굳이 잘 동작하고 있는 애플리케이션의 인증을 건드릴 일은 없겠다 싶었습니다.<br />
+메뉴 한가지에 영향을 미치는 로직이 아닌 인증과 세션등 애플리케이션 전체에 영향을 미치는 작업이 Keycloak 연동일텐데,그런 임팩트가 큰 작업을 굳이 억지로 할 이유는 크지 않다고 생각됩니다.<br />
+<br />
+<hr />
+그러다 보니, 저 또한 MSA로의 전환에 자연스레 관심을 갖게 되었습니다.<br />
+MSA로의 전환은 보통 일이 아니라고 생각합니다. 그게 제가 관심갖지 않은 가장 큰 이유였습니다.<br />
+모놀리식 프로세스 하나 분리한다고 해서 MSA가 완료되었다고 생각하지 않습니다.<br />
+DB도 각 마이크로서비스에 맞게 분리하고, 애플리케이션 단은 물론 분리하고, 관리 / 운영의 패러다임 또한 바뀌는 것이 MSA 전환이라고 생각합니다.<br />
+그 MSA로 전환하는 과도기에 레거시 애플리케이션과 최신 Keycloak이 연동되어야 하더군요.<br />
+MSA로 전환 중이더라도, 레거시 애플리케이션을 사용하는데 있어서 인증 문제는 없어야 하니까요.<br />
+그래서 제 나름대로 절차를 구상해 봤습니다.<br />
+실무에서 안해봤냐고요? 네. 안해봤습니다.<br />
+해봤다면 OIDC Template Code는 이미 그 업체의 자산이 되어있을지도 모르는 일입니다.<br />
+<br />
+<hr />
+대략적인 절차는 아래와 같습니다.<br />
+<ul>
+<li>최신 Keycloak 서버와 레거시 애플리케이션 연동. (사용자 계정 Migration 포함)</li>
+<li>API Gateway 설치 및 하나의 리소스 서버를 생성하여 레거시 애플리케이션과 연동.</li>
+<li>점진적으로 레거시 애플리케이션에서 비지니스 로직을 분리하여 새로운 리소스 서버로 제작하여 추가.</li>
+<li>최종적으로 리소스 서버에 데이터를 요청하여 화면에 출력하는 레거시 Client의 재작성 또는 Migration.</li>
+</ul>
+<br />
+
+위 절차들을 보시면, 가장 먼저 인증과 세션부터 확립하려는 것을 보실 수 있습니다.<br />
+그 후, 토큰 인가를 통해 리소스 서버로의 접근 통제가 진행되기에,<br /> 
+Keycloak통제 하의 안전한 환경에서 점진적으로 MSA로의 전환이 가능하다고 생각합니다.<br />
+<br />
+<hr />
+하지만 실무에서는 위의 절차처럼 쉽게 진행되지 않는다고 생각합니다.<br />
+제가 다른 실무를 겪으면서 지금까지 느껴본 바로는 그렇습니다.<br />
+회의실에서는 금방금방 바로 될것 같은 일들이, 직접 진행해보면 지뢰와 암초가 곳곳에 널려있지요.<br />
+저 또한 위의 절차들이 쉽게 진행되리라 생각하지는 않습니다.<br />
+하지만, 저 절차들이 신속한 의사결정이 가능해지고, 부분적으로라도 쉽게 진행될수 있도록,<br />
+각 단계에 따른 PoC를 진행해보는 것이 답이라고 생각합니다.<br />
+말 만으로 된다고 하는 것보다, PoC 결과물과 레퍼런스 코드의 제시 한번으로 의사결정이 끝나는 경우가 많지 않던가요?<br />
+그래서, Template Code의 개선 방향을 MSA전환에 필요한 쪽으로 잡게 되었습니다.<br />
+단순 Keycloak 연동의 이유보다는, MSA로의 전환을 목적으로 하는 경우가 많을 거라고 생각하기 때문입니다.<br />
+<br />
+<hr />
+현재 위 절차의 1단계에서, 일반적인 RBAC 연동이 동작함을 시연 영상으로 보여드렸습니다. <br />
+하지만 사용자 계정 이관등의 이슈에 대해서는 따로 언급을 안했지요.<br />
+네. 제 OIDC Template Code-Client는 레거시 애플리케이션을 OIDC Client로서 연동하는데 도움이 되는 코드입니다만, 사용자 계정의 이관에는 도움이 되지 못하지요.<br />
+때문에, 현재 사용자 계정의 이관 이슈에 대응하기 위한 방책을 알아보고 PoC를 진행하고 있습니다.<br />
+JSON Import 방식과, User Storage SPI방식이 그것입니다.<br />
+각자 장단점이 있는 방식입니다.<br />
+특히, 실시간 인가 질의 및 검증 기능에 있어서, Fetch Roles 기능의 적용여부가 갈리게 됩니다.<br />
+<br />
+<hr />
+앞으로는 위에 언급한 로드맵 절차에 대해 하나씩 PoC를 진행해볼 생각입니다.<br />
+2단계까지만 PoC를 진행해볼 생각입니다. 
+그 이후 비지니스 로직 분리시켜 리소스 서버 만드는 것은 인증/인가의 영역이 아니라고 생각합니다.<br />
+3단계까지 진행된 상황이라면, 리소스 서버의 인가를 어떻게 진행하고 검증할지 이미 확정된 시점이 아닐까요?<br />
+2단계까지라고 하더라도, MSA전환과 구성 솔루션들(Spring Cloud Gateway등)에 대한 지식과 경험을 상당량 습득할수 있다고 봅니다.<br />
+<br />
+감사합니다<br />
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2026-11-05T08:10:00+09:00">November 5, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/posts/2026-10-31-posts-progress/" class="pagination--pager" title="‘다중 인가 검증’ 시연 영상">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i> X</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sbeholder32167.github.io">HS Workshop</a>. 제작 지원:  <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
