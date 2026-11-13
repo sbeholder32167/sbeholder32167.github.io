@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-11-05T08:58:39+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">왜 최신 Keycloak을 적용하려 하세요?</title><link href="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/" rel="alternate" type="text/html" title="왜 최신 Keycloak을 적용하려 하세요?" /><published>2026-11-05T08:10:00+09:00</published><updated>2026-11-05T08:10:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/"><![CDATA[<p><br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://sbeholder32167.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sbeholder32167.github.io/" rel="alternate" type="text/html" /><updated>2026-11-13T11:29:08+09:00</updated><id>https://sbeholder32167.github.io/feed.xml</id><title type="html">HS Workshop</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Silent Beholder</name></author><entry><title type="html">Secret Note App 무료화</title><link href="https://sbeholder32167.github.io/posts/2026-11-13-posts-discuss_secretnote/" rel="alternate" type="text/html" title="Secret Note App 무료화" /><published>2026-11-13T10:10:00+09:00</published><updated>2026-11-13T10:10:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss_secretnote</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-11-13-posts-discuss_secretnote/"><![CDATA[<p><br />
+광고 없이 완전 무료화로 전환하였습니다.
+<br /></p>
+<hr />
+
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e1e4e8; border-radius: 20px;background-color:white;">
+  <img src="/assets/images/secret_note_icon.jpg" alt="Secret note Icon" style="width: 96px;height: 96px;object-fit: contain;border-radius:30px;margin:0 20px 0 20px;" />
+  <div>
+    <h4 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600;">Secret Note</h4>
+  </div>
+</div>
+<p><br /></p>
+<div style="font-size:18px;">
+오늘은 제 첫 앱인 Secret Note의 무료화 업데이트에 관련하여 포스트를 올립니다.<br />
+원래 무료 앱으로 기획하고 출시했지만, 약간의 수익도 추구했습니다.<br />
+비밀번호를 관리하는 앱에 무슨 광고 수익이냐 의문을 가지실 수도 있겠지만,<br />
+안전한 보관과 그 보관을 위한 동작에 따른 수고비(?) 정도로 생각되었으면 합니다.<br />
+기획 자체도, 일반적으로 앱을 사용시마다 광고를 시청하는 것이 아닌,<br /> 
+단 시간에 많은 데이터를 저장하고 싶은 사용자만 광고를 시청하도록 했었습니다.<br />
+하루에 무료 충전량이 있지만, 더 필요하신 분은 광고를 이용하시라는 취지였습니다.<br />
+<br />
+<hr />
+
+이번에 광고를 제거한 것은 "구글의 판매자 선언"과 관련이 있습니다.<br />
+유럽 지역에서 광고를 포함한 어떠한 수익이라도 얻는 "판매자"로서 앱을 배포하려면,<br />
+개발사의 주소와 전화번호등을 모두 낱낱이 공개하라는 것이었습니다.<br />
+일반적인 기업이라면, 굳이 큰 영향이 없을 거라고 생각합니다.<br />
+어차피 기업 주소와 전화번호는 공개해야하는 데이터들이고,<br />
+조직 내 직원들의 '개인정보'가 노출되지는 않습니다.<br />
+하지만 저같은 1인 개발자에게는 '개인정보'를 전 세계에 노출하라는 협박으로 들렸습니다.<br />
+보안 앱을 만드는 제가, 제 개인정보 노출 하나 방지할 생각하지 않는다면 그것도 말이 안되겠지요.<br />
+<br />
+<hr />
+제 생각에는, 구글도 저같은 1인 개발자의 이런 고충을 알고 있었다고 생각됩니다.<br />
+그 근거로서, '유럽 지역에 배포하지 않는 경우, 비판매자로 선언할수 있다'라는 예외조항을 생각해볼수 있습니다.<br />
+구글의 안내문에 직접 그 예외의 내용을 '명기'한 것은,<br />
+1인 개발자의 이탈을 최소한으로 유지해보겠다는 의도가 있는 것이 아닌가 싶었습니다.<br />
+하지만, 그 점에 있어서 AI는 한가지 주의점을 알려주더군요.<br />
+지금은 이 정책이 유럽에 국한될지라도, 추후 전세계로 확장되는 것은 시간문제라고 말이죠.<br />
+그 이유로, 개인 개발자들의 수익이 구글에게 별로 큰 비율이 되지 않음을 들었습니다.<br />
+틀린 의견이 아니라고 생각됩니다.<br />
+그러면서 완전히 수익을 내지 않는 무료 앱으로 전환할 것을 제안하더군요.<br />
+그것 또한 구글의 바램이 아닐까 싶습니다. 개인 자격으로는 수익낼 생각하지 말라고요.<br />
+AI는 그들 기업의 정책과 그들의 성향대로 답변하지 않습니까?<br />
+구글 AI가 한 답변의 의미는 곧 구글의 의도로 연결된다고 생각합니다.<br />
+<br />
+<hr />
+그래서 고민하게 되었습니다.<br />
+광고 자체를 없애고 완전 무료화로 진행할 것인지,<br /> 
+유럽 지역만 배포를 중지하고 추가적인 수정 없이 계속 인앱 광고가 포함된 앱으로 지속할지를 선택해야 했습니다.<br />
+아직까지는 예외조항이 효력이 있으니, 유럽지역 배포만 해제하는 것은 코드 로직 변경에 비해 아주 쉬운 일입니다.<br />
+광고 수익은 이 판단에 크게 중요하지 않았습니다.<br /> 
+제 앱 써보신 분들이라면 아시겠지만, 광고로 돈 벌수있는 기획이 아닙니다.<br />
+관리해야할 비밀번호가 갑자기 많이 늘어나서 잔뜩 저장해야 할 상황이 벌어질 빈도가 한해애 얼마나 될까요?<br />
+이 판단에 가장 중요한 변수는 저의 공수였다고 생각합니다.<br />
+'어차피 수익도 나지 않는데, 굳이 서비스할 필요가 있나?' 라고 생각하여 배포 트랙에서 내려버리는 것도 한 방법이겠지요.<br />
+하지만 저는 이 앱을 완전 무료화로 전환하고 광고를 제거한 후 재 배포하는 것으로 결정했습니다.<br />
+
+<hr />
+유럽의 사용자들에게 '갑자기 정책때문에 배포를 중지합니다'는 공지만 띄우고 배포를 중단하고 싶지는 않았습니다.<br />
+제 앱 사용자 분들이 많지는 않습니다만, 그 중에 유럽 사용자 분들도 있습니다.<br />
+제 보잘것 없는 작은 앱을 이용해 주시는 분들이지요.<br />
+처음에 사용자 한분 한분 늘어나는 것이 참 만족스럽고 즐거운 경험이었습니다.<br />
+갑자기 제가 배포를 저런 정책때문에 중단한다면, 사용자 분들은 이해는 하면서도 한편으로는 배신감을 느낄수 있다고 생각합니다.<br />
+이 앱은 비밀번호를 관리하는 앱입니다.<br />
+앱의 특성상, 이 앱이 아니면 다른 앱에서는 데이터를 복호화 할수 없도록 되어 있지요.<br />
+그런데 정책때문에 배포를 갑자기 중단한다는 것은, 이 앱을 사용하는 유럽 사용자분들의 가용성을 망치는 행위라고 판단되었습니다.<br />
+제 앱에 저장한 사용자분들의 비밀번호는 어떻게 하나요? 제 앱이 아니면 백업 파일은 읽을수조차 없습니다.<br />
+갑작스러운 배포 중단은 곧 사용자분들에 대한 배신이라고 생각합니다.<br />
+어쩔수 없이 배포를 중단할 생각이라면, 관련 공지와 함께,<br />
+지금까지 앱에 저장된 비밀번호를 사용자 분들이 읽을 수 있도록 조치하는 것이 필요하다고 생각합니다.<br />
+그래서 먼저 광고를 제거하고 완전 무료 앱으로 전환하였습니다.<br />
+배포를 중단하지 않게 조치했던 것이지요.<br />
+<hr />
+그리고, 평문 파일로의 Export 기능을 준비중에 있습니다. <br />
+위에 언급한 바와 같이, 이 정책은 전 세계로 확장될 가능성이 충분하다고 생각됩니다.<br />
+갑자기 없던 규제를 만들어 개인 개발자들을 언제든지 얼마든지 스토어에서 쫒아낼 수도 있습니다.<br />
+그것은 각국의 의회 마음이고, 빅테크 마음이지요. 개인 개발자들은 언제든지 스토어에서 쫒겨날수 있는 존재라고 봅니다.<br />
+쫒겨날때는 쫒겨나더라도, 제 앱을 사용하는 사용자들의 비밀번호에 접근할수 있는 방법은 제공해야 한다고 생각합니다.<br />
+배포가 중단되어도, 제 앱에 저장되었던 비밀번호를 다른 앱으로 이관할 때 용이하도록,<br />
+평문 Text File Export 기능을 제공할 예정입니다.<br />
+이 기능까지 구현되면, 배포가 언제든지 중단되어도 사용자 분들은 비밀번호에 대한 접근권한을 잃지 않을 것으로 생각합니다.<br />
+그렇게 되면 저는 안심하고 쫒겨날수 있겠네요.
+<hr />
+Export 기능 추가 업데이트는 좀 시간이 걸릴 것으로 생각됩니다.<br />
+저를 빨리 쫒아낸다면, 우선도를 높여 빨리 진행해야겠지만요.<br />
+이 업데이트가 진행되면 그때 포스트로 올리겠습니다.<br />
+감사합니다.<br />
+</div>]]></content><author><name>Silent Beholder</name></author><summary type="html"><![CDATA[광고 없이 완전 무료화로 전환하였습니다.]]></summary></entry><entry><title type="html">왜 최신 Keycloak을 적용하려 하세요?</title><link href="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/" rel="alternate" type="text/html" title="왜 최신 Keycloak을 적용하려 하세요?" /><published>2026-11-05T08:10:00+09:00</published><updated>2026-11-05T08:10:00+09:00</updated><id>https://sbeholder32167.github.io/posts/posts-discuss</id><content type="html" xml:base="https://sbeholder32167.github.io/posts/2026-11-05-posts-discuss/"><![CDATA[<p><br />
 오래된 구형 애플리케이션에 왜 최신 Keycloak을 연동하려 하시나요?
 <br /></p>
 <hr />
