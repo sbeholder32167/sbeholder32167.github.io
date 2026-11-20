@@ -5,6 +5,12 @@ var store = [{
         "url": "/labs/2026-08-29-lab-test/",
         "teaser": null
       },{
+        "title": "JNI 서비스",
+        "excerpt":"JNI 서비스를 제공하기로 했습니다 앞서 포스트에서는 Java와 C/C++간의 연동 기술인 JNI를 Lab용 포트폴리오 기술로 언급했습니다. 하지만, 이 기술 또한 서비스로 제공하기 용이하다고 판단되어, 이에대한 서비스를 구상하고 진행하려 합니다. 포트폴리오 Lab 기술로만 남겨두기에는 아깝다는 생각입니다. 이전 포스트에서 언급드렸듯이, 연동 모듈에 대한 레퍼런스를 보유하고 있는 상황이며, 지속적으로 관심가진 분야이기에 서비스 대응에도 문제가...","categories": [],
+        "tags": [],
+        "url": "/labs/2026-11-19-lab/",
+        "teaser": null
+      },{
         "title": "OIDC Template Code-Client 소개",
         "excerpt":"Spring Security OAuth2 Client를 적용하기 어렵다고 Keycloak 연동을 포기하지 마세요 제목 그대로 OIDC (Open ID Connect) 연동을 위한 Client용 Template Code입니다. Keycloak, Google과 같은 IDP (Identity Provider)에 Legacy Spring 또는 Legacy 전자정부 Framework Application을 연동할수 있게 해주는 Template Code입니다. 기존 인증 체계에 대한 영향과 기존 코드에 대한 침습을 최소화하고자, Template...","categories": [],
         "tags": [],

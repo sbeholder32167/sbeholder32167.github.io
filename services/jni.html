@@ -1,0 +1,471 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="ko-KR" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Java - C/C++간 연동 모듈 제작 - HS Workshop</title>
+<meta name="description" content="앱이나 웹 어플리케이션 등을 개발하는 1인 개발자입니다.">
+
+
+  <meta name="author" content="Silent Beholder">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="HS Workshop">
+<meta property="og:title" content="Java - C/C++간 연동 모듈 제작">
+<meta property="og:url" content="https://sbeholder32167.github.io/services/jni">
+
+
+  <meta property="og:description" content="앱이나 웹 어플리케이션 등을 개발하는 1인 개발자입니다.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://sbeholder32167.github.io/services/jni">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HS Workshop Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          HS Workshop
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/products/"
+                
+                
+              >Products</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/labs/"
+                
+                
+              >Labs</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/services/"
+                
+                
+              >Services</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sbeholder32167.github.io/" itemprop="url">Silent Beholder</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>정보 보안을 전공했으며, 앱이나 웹 어플리케이션 등을 개발하는 1인 개발자입니다.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Kyunggi, Korea(South)</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:sbeholder6684@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">X</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/sbeholder32167" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Java - C/C++간 연동 모듈 제작">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://sbeholder32167.github.io/services/jni" itemprop="url">Java - C/C++간 연동 모듈 제작
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <div style="font-size:24px;">
+ Java와 C / C++ 간의 연동 모듈 제작 서비스를 제공합니다.<br /><br />
+</div>
+<hr />
+
+<div style="font-size:18px;">
+1. C/C++ 자산과 Java 시스템을 매끄럽게 잇는 연동 모듈<br />
+<br />
+ 기존 C/C++로 구현된 라이브러리, 장비/장치 제어 코드 또는 연산 로직을 Java 환경에서 호출해야 할 때, 연동 계층(JNI:Java Native Interface)은 생각보다 많은 시간이 걸리는 구간입니다. 단순 기본 타입(int, String 등) 전달을 넘어서 Java 커스텀 객체 및 컬렉션(맵/리스트) 간 데이터 상호 교환이 필요해지면 타입 매핑, 참조 수명 관리, 예외 처리 등 신경 써야 할 지점이 늘어납니다.<br />
+<br />
+ Java와 C/C++ 사이를 연결하는 JNI 연동 모듈을 설계·구현해 드립니다.<br />
+<strong>무선 패킷 데이터를 수신해 Java 측으로 전달, 출력하는 수준의 연동 검증 경험</strong>을 바탕으로, 안정적인 브리지(Bridge) 모듈 구축을 도와드립니다.
+</div>
+<hr />
+
+<div style="font-size:18px;">
+2. 서비스 핵심 특징 및 수주 범위<br />
+<br />
+아래와 같은 기준으로 수주 범위가 결정됩니다.<br />
+<ul>
+<li>1단계: 단순 객체/프리미티브 타입 연동 및 단방향 데이터 전달. (기본 연동)</li>
+<li>2단계: Java 커스텀 객체 및 맵/리스트 연동 및 양방향 데이터 상호 교환. (커스텀 객체·컬렉션 연동)</li>
+<li>3단계: Native Thread와 Java Thread의 동시 동작 및 값 상호 교환. (연속적 데이터 스트리밍)</li>
+</ul>
+<br />
+위 단계 중 <strong>3단계 구조는 본 서비스 제공 범위에서 제외</strong>됩니다.<br />
+3단계 구조의 구현과 유사한 연동 경험이 있긴 하나, 연속적인 데이터 스트리밍과 Native-Java 간 동시 값 교환은 단발성, 호출 단위 연동과는 관리해야 할 요소가 다릅니다. <br />
+스트리밍의 경우 지속적인 데이터 흐름 중 메모리 및 참조 관리, 스레드 동기화, 실제 운영 부하 환경에서의 안정성 검증까지 폭넓게 고려해야 하지만, 한정된 외주 일정과 대응 범위 안에서 품질과 납기를 확실히 보장하기 위해 1, 2단계(단순 연동 및 커스텀 객체, 맵/리스트 상호 교환)까지만 진행하고 있는 점 양해 부탁드립니다.<br />
+<br />
+현실적인 개발·빌드 환경 대응: 기본적으로 Windows 환경에서는 Visual Studio를 활용하며, Linux 환경의 공유 라이브러리(.so) 빌드가 필요한 경우에는 gcc / g++ 기반 빌드 및 연동 작업을 진행합니다.<br />
+<br />
+실무 관점의 구조 설계: 일회성 코드가 아니라 유지보수와 추후 확장을 고려한 인터페이스와 연동 구조를 잡습니다.<br />
+<br />
+</div>
+<hr />
+
+<div style="font-size:18px;">
+3. 이런 프로젝트에 적합합니다<br />
+<ul>
+<li>기존 C/C++ 네이티브 모듈 또는 SDK를 Java/Spring 기반 시스템과 연동해야 하는 프로젝트</li>
+<li>커스텀 객체나 맵/리스트 구조를 Java 애플리케이션과 C/C++ 라이브러리 간에 주고받아야 할 때, JNI 구현 공수나 시행착오를 줄이고 싶은 경우</li>
+<li>Windows 기반 개발 환경뿐 아니라 Linux .so 환경까지 고려해 연동 모듈을 준비해야 하는 경우</li>
+<li>고빈도 스트리밍이나 복잡한 멀티스레드 실시간 동기화보다는, 명확한 호출·응답 및 객체 단위 데이터 교환이 중심인 프로젝트</li>
+</ul>
+<br />
+</div>
+<hr />
+
+<div style="font-size:18px;">
+4. 진행 절차<br />
+<ul>
+<li>환경 및 요구사항 파악: Java/C++ 버전, 커스텀 객체 및 맵/리스트 구조, 1, 2단계 범위 적합성 및 목표 일정 확인 (Linux .so 타깃 시 고객사 OS 상세 정보 필수 확인)</li>
+<li>연동 구조 및 인터페이스 설계: 함수 시그니처, 객체/컬렉션 변환 규칙, 예외/리소스 처리 방향 정리</li>
+<li>모듈 구현 및 빌드/연동 검증: 연동 모듈 구현, 대상 환경 기준 빌드 및 기본 시나리오 테스트 (Linux의 경우 VM 빌드 환경 기준 진행)</li>
+<li>납품 및 인수인계: 소스 코드, 빌드 방법 및 적용 가이드 전달 (필요 시 현장/방문 빌드 및 동작 테스트 진행)</li>
+</ul>
+</div>
+<hr />
+
+<div style="font-size:18px;">
+5. 원활한 진행을 위해 꼭 필요한 정보 및 환경 안내<br />
+<br />
+안정적인 결과물이 제공되기 위해 아래 기준과 안내 사항을 꼭 확인해 주시기 바랍니다.<br />
+<ul>
+<li>수주 범위 안내: 본 서비스는 1단계(단순 객체/프리미티브 단방향 전달) 및 2단계(커스텀 객체 및 맵/리스트 양방향 상호 교환) 수준까지 진행합니다. Native/Java 스레드 동시 동작 및 연속 스트리밍(3단계)이 필요한 고난도 실시간 파이프라인은 별도로 받지 않습니다.</li>
+<li>Linux .so 및 고객사 OS 상세 정보: Linux .so 파일 생성 및 연동이 포함되는 프로젝트라면 배포판 및 세부 버전(예: Ubuntu, CentOS, RHEL, Debian 등), 아키텍처(예: x86_64, ARM64 등), 대상 환경의 컴파일러(gcc/g++ 종류 및 버전) 및 관련 라이브러리 가용 여부 등 고객사 OS 상세 정보가 필요합니다.</li>
+<li>VM 빌드 환경 및 방문 빌드 안내: 만약 Linux를 사용할 경우, 연동 모듈 제작 시에는 빌드 환경으로 VM을 사용하게 됩니다. 이때 <strong>실 기기와 미세한 차이가 있을 수 있으니 동작 테스트 시에 이슈가 발생</strong>할 수 있습니다. 타깃 환경 차이로 <strong>현장 확인이나 방문 빌드가 필요한 경우, 사전 협의 후 실비(출장비 등)가 발생</strong>할 수 있습니다.</li>
+<li>Android NDK 미지원 안내: 본 서비스는 Java–C/C++ JNI 연동에 집중하며, <strong>Android NDK 개발은 제공되지 않습니다</strong>. Android NDK의 경우 단말 기기, ABI, OS 버전별 실제 동작 검증이 필수적인데, 현재 다양한 단말 기기를 보유하고 테스트할 수 있는 환경이 충분하지 않아 품질 리스크를 줄이기 위해 별도로 제공하지 않고 있는 점 양해 부탁드립니다.</li>
+</ul>
+문의 주실 때 위 범위와 환경 기준, 연동 대상 Java/C++의 대략적인 구조, 희망 일정을 알려주시면 훨씬 빠르고 정확하게 검토할 수 있습니다.<br />
+</div>
+<hr />
+
+<div style="font-size:18px;">
+   서비스 비용 및 세부 일정에 대해서는 메일로 문의해 주시면 상세히 안내해 드리겠습니다.<br />
+   <br />
+   감사합니다<br />
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://www.x.com/sbeholder_32167" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i> X</a></li>
+        
+      
+        
+          <li><a href="https://github.com/sbeholder32167" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sbeholder32167.github.io">HS Workshop</a>. 제작 지원:  <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
